@@ -1,0 +1,40 @@
+{
+  "title": "Weekly Team Sync",
+  "duration_minutes": 60,
+  "opening": "Good morning everyone! Welcome to our weekly team sync. Let's get started.",
+  "closing": "Thank you everyone for your time and contributions today. Have a great rest of your week!",
+  "topics": [
+    {
+      "id": 1,
+      "title": "Project Updates",
+      "lead": "Sarah",
+      "duration_minutes": 15,
+      "intro": "Let's start with project updates. Sarah, would you like to share your progress?",
+      "transition": "Thank you Sarah. Any questions on that before we move on?"
+    },
+    {
+      "id": 2,
+      "title": "Q1 Goals Review",
+      "lead": "Michael",
+      "duration_minutes": 20,
+      "intro": "Next up, we'll review our Q1 goals. Michael, please go ahead.",
+      "transition": "Great insights, Michael. Let's hear if anyone has questions or comments."
+    },
+    {
+      "id": 3,
+      "title": "Tech Debt Discussion",
+      "lead": "Emily",
+      "duration_minutes": 15,
+      "intro": "Now let's discuss technical debt priorities. Emily, the floor is yours.",
+      "transition": "Thanks Emily for that thorough analysis. Any concerns or suggestions from the team?"
+    },
+    {
+      "id": 4,
+      "title": "Open Discussion",
+      "lead": "Everyone",
+      "duration_minutes": 10,
+      "intro": "We have time for open discussion. Does anyone have topics they'd like to bring up?",
+      "transition": "Any other items before we wrap up?"
+    }
+  ]
+}
