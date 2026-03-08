@@ -76,17 +76,16 @@ Edit `backend/config/meeting_agenda.json` with your meeting structure:
 Create `.env` file:
 
 ```
-OPENAI_API_KEY=your_key_here
-ELEVENLABS_API_KEY=your_key_here  # Optional
+GITHUB_TOKEN=your_github_pat_token_here
 ```
 
 ## Tech Stack
 
 - **Backend**: Python, FastAPI, WebSockets
 - **Frontend**: React, Web Audio API
-- **Speech-to-Text**: OpenAI Whisper API
-- **Text-to-Speech**: System TTS (free) or ElevenLabs
-- **LLM**: OpenAI GPT-4 Turbo
+- **Speech-to-Text**: GitHub Models (Whisper)
+- **Text-to-Speech**: GitHub Models (TTS-1)
+- **LLM**: GitHub Models (GPT-4o)
 
 ## Roadmap
 

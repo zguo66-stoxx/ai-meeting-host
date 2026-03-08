@@ -12,15 +12,15 @@ if [ ! -f .env ]; then
     echo "Creating .env from .env.example..."
     cp .env.example .env
     echo ""
-    echo "⚠️  Please edit .env and add your OPENAI_API_KEY"
+    echo "⚠️  Please edit .env and add your GITHUB_TOKEN"
     echo "Then run this script again."
     exit 1
 fi
 
-# Check if OPENAI_API_KEY is set
-if grep -q "your_openai_api_key_here" .env; then
-    echo "⚠️  Please set your OPENAI_API_KEY in .env file"
-    echo "Get your key from: https://platform.openai.com/api-keys"
+# Check if GITHUB_TOKEN is set
+if grep -q "your_github_token_here" .env; then
+    echo "⚠️  Please set your GITHUB_TOKEN in .env file"
+    echo "Get your token from: https://github.com/settings/tokens"
     exit 1
 fi
 

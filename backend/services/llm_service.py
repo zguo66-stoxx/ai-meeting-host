@@ -1,17 +1,21 @@
 """
 LLM Service for generating intelligent meeting responses
-Uses OpenAI GPT-4 for context-aware responses
+Uses GitHub Models for context-aware responses
 """
 import os
 from typing import List, Optional, Dict
 from openai import AsyncOpenAI
 
-client = AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+# Initialize GitHub Models client
+client = AsyncOpenAI(
+    base_url="https://models.inference.ai.azure.com",
+    api_key=os.getenv("GITHUB_TOKEN")
+)
 
 
 class LLMService:
     def __init__(self):
-        self.model = "gpt-4-turbo-preview"  # Fast GPT-4 model
+        self.model = "gpt-4o"  # GitHub Models GPT-4o
         self.system_prompt = """You are an AI meeting host assistant. 
 Your role is to:
 - Facilitate smooth meeting flow

@@ -5,7 +5,7 @@
 - Python 3.8 or higher
 - Node.js 16 or higher
 - npm or yarn
-- OpenAI API key (required)
+- GitHub Personal Access Token (required)
 - Microphone and speaker/headphones
 
 ## Step-by-Step Setup
@@ -24,15 +24,16 @@ Create a `.env` file in the root directory:
 cp .env.example .env
 ```
 
-Edit `.env` and add your OpenAI API key:
+Edit `.env` and add your GitHub token:
 
 ```
-OPENAI_API_KEY=sk-your-actual-api-key-here
+GITHUB_TOKEN=github_pat_your_actual_token_here
 ```
 
-**Get API Key:**
-- Go to https://platform.openai.com/api-keys
-- Create a new secret key
+**Get GitHub Token:**
+- Go to https://github.com/settings/tokens
+- Click "Generate new token" (classic)
+- Select scopes: `repo`, `read:org` (for GitHub Models access)
 - Copy and paste it into `.env`
 
 ### 3. Backend Setup
@@ -125,22 +126,21 @@ Edit `backend/config/meeting_agenda.json` to customize:
 - Try refreshing the page
 
 ### API Errors
-- Verify your OpenAI API key is correct in `.env`
-- Check you have credits in your OpenAI account
+- Verify your GITHUB_TOKEN is correct in `.env`
+- Make sure your GitHub account has access to GitHub Models
 - Check the backend logs for detailed error messages
 
 ## Cost Estimation
 
-With OpenAI APIs:
-- **Whisper (Speech-to-Text)**: ~$0.006 per minute
-- **TTS (Text-to-Speech)**: ~$0.015 per 1K characters
-- **GPT-4 Turbo**: ~$0.01 per 1K tokens
+With GitHub Models:
+- **Free tier available** for GitHub users
+- Check GitHub Models pricing at https://github.com/marketplace/models
 
 **Example 1-hour meeting:**
-- Transcription: ~$0.36
-- Bot speaking 20 times: ~$0.30
-- Smart responses: ~$0.50
-- **Total: ~$1-2 per meeting**
+- Transcription: Included in free tier
+- Bot speaking 20 times: Included in free tier  
+- Smart responses: Included in free tier
+- **Total: Free (with GitHub account)**
 
 ## Next Steps
 
@@ -151,19 +151,9 @@ With OpenAI APIs:
 
 ## Optional Enhancements
 
-### Use ElevenLabs for Better Voice Quality
+### Change TTS Voice
 
-1. Sign up at https://elevenlabs.io
-2. Get your API key
-3. Add to `.env`:
-   ```
-   ELEVENLABS_API_KEY=your_key_here
-   ```
-4. Restart backend - it will automatically use ElevenLabs
-
-### Change TTS Voice (OpenAI)
-
-Edit in `frontend/src/App.js`, the API calls can specify different voices:
+Edit in `backend/services/tts_service.py`, the API calls can specify different voices:
 - `alloy` (default)
 - `echo`
 - `fable`

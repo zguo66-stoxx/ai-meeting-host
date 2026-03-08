@@ -11,16 +11,16 @@ if not exist .env (
     echo Creating .env from .env.example...
     copy .env.example .env
     echo.
-    echo ⚠️  Please edit .env and add your OPENAI_API_KEY
+    echo ⚠️  Please edit .env and add your GITHUB_TOKEN
     echo Then run this script again.
     exit /b 1
 )
 
-REM Check if OPENAI_API_KEY is set
-findstr /C:"your_openai_api_key_here" .env >nul
+REM Check if GITHUB_TOKEN is set
+findstr /C:"your_github_token_here" .env >nul
 if %errorlevel% equ 0 (
-    echo ⚠️  Please set your OPENAI_API_KEY in .env file
-    echo Get your key from: https://platform.openai.com/api-keys
+    echo ⚠️  Please set your GITHUB_TOKEN in .env file
+    echo Get your token from: https://github.com/settings/tokens
     exit /b 1
 )
 

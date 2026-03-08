@@ -7,9 +7,9 @@ ai_meetinghost/
 ├── backend/                 # Python FastAPI server
 │   ├── main.py             # Main API endpoints
 │   ├── services/           # Core services
-│   │   ├── speech_service.py    # Whisper STT
-│   │   ├── tts_service.py       # Text-to-Speech
-│   │   └── llm_service.py       # GPT-4 integration
+│   │   ├── speech_service.py    # GitHub Models Whisper STT
+│   │   ├── tts_service.py       # GitHub Models Text-to-Speech
+│   │   └── llm_service.py       # GitHub Models GPT-4o
 │   └── config/
 │       └── meeting_agenda.json  # Meeting structure
 │
@@ -126,9 +126,17 @@ Edit `backend/services/llm_service.py`:
 self.system_prompt = """Your custom personality here..."""
 ```
 
+### Change LLM Model
+
+Edit `backend/services/llm_service.py`:
+
+```python
+self.model = "gpt-4o"  # or other GitHub Models available
+```
+
 ### Add Custom Voice
 
-For OpenAI TTS, modify the voice parameter in API calls:
+For GitHub Models TTS, modify the voice parameter in API calls:
 
 ```python
 response = await client.audio.speech.create(
@@ -183,9 +191,9 @@ print(f"Generated audio: {len(audio)} bytes")
 
 ### Reduce Costs
 
-1. Use `tts-1` instead of `tts-1-hd`
-2. Use `gpt-3.5-turbo` for simple responses
-3. Limit transcription frequency (currently 5-second chunks)
+1. Use GitHub Models free tier
+2. Limit transcription frequency (currently 5-second chunks)
+3. Cache common responses
 
 ## Deployment
 
@@ -197,7 +205,7 @@ echo "web: cd backend && uvicorn main:app --host 0.0.0.0 --port \$PORT" > Procfi
 
 # Deploy
 heroku create your-app-name
-heroku config:set OPENAI_API_KEY=your_key
+heroku config:set GITHUB_TOKEN=your_token
 git push heroku main
 ```
 
